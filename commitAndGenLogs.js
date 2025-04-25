@@ -1,5 +1,4 @@
 const IO = require("./io");
-const path = require("node:path");
 
 function makeBox(message) {
   const padding = 2;
@@ -68,7 +67,13 @@ async function commitAndGenLogs(msg, description = "") {
   }/${now.getFullYear()} - ${now.getHours()}:${now.getMinutes()}`;
 
   // Write to src/CHANGELOG.md
-  const changelogPath = path.join(__dirname, "../CHANGELOG.md");
+  let changelogPath = IO.findWorkspaceFolder();
+  if (changelogPath === null) {
+    console.error("No current folder found!");
+    return;
+  }
+
+  changelogPath += "/CHANGELOG.md";
 
   const boxMsg = `${date} - [BLAME] => ${user}`;
   // Format entry
@@ -105,17 +110,17 @@ ${filteredDiff}
   // Write header, new entry, and body so it's most recent will always be on top
   const newContent = header + entry + body;
 
-  await IO.writeFile(changelogPath, newContent);
-  console.log("Changelog entry added.");
+  let res = await IO.writeFile(changelogPath, newContent);
+  console.log("Changelog entry added.", res);
 
   // Stage src/CHANGELOG
-  await IO.gitAddAll();
-  console.log("All files added.");
+  res = await IO.gitAddAll();
+  console.log("All files added.", res);
 
   // Commit with the provided message, safely quoted
-  await IO.gitCommit(`patch(changelog): update changelog for ${safeMsg}`);
+  res = await IO.gitCommit(`patch(changelog): update changelog for ${safeMsg}`);
 
-  console.log("Changes committed.");
+  console.log("Changes committed.", res);
 }
 
 module.exports = commitAndGenLogs;

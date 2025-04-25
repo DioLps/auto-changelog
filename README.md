@@ -2,6 +2,10 @@
 
 Auto CHANGELOG is an extension for Visual Studio Code that automates the generation and updating of your project's `CHANGELOG.md` file based on Git commit messages.
 
+<div align="center">
+    <img src=".github/banner.png" />
+</div>
+
 ## Features
 
 - **Automatic changelog generation:**
