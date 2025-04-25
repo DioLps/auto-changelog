@@ -6,6 +6,13 @@
   "engines": {
     "vscode": "^1.54.0"
   },
+  "publisher": "rudy-tools-box",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DioLps/auto-changelog.git"
+  },
+  "icon": ".github/icon.png",
+  "license": "Apache-2.0",
   "categories": [
     "Other"
   ],
