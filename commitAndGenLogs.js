@@ -22,7 +22,7 @@ function makeBox(message) {
  * @param {string} message - The commit message to be used.
  * @param {string} description - An optional description for the changes made.
  */
-export default async function commitAndGenLogs(msg, description = "") {
+async function commitAndGenLogs(msg, description = "") {
   const formattedDescription =
     description === ""
       ? ""
@@ -117,3 +117,5 @@ ${filteredDiff}
 
   console.log("Changes committed.");
 }
+
+module.exports = commitAndGenLogs;
