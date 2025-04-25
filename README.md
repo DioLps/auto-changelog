@@ -36,6 +36,7 @@ Auto CHANGELOG is an extension for Visual Studio Code that automates the generat
 
 <div align="center">
     <img src=".github/exampleOne.png" />
+    <img src=".github/exampleTwo.png" />
 </div>
 
 ## Notes
