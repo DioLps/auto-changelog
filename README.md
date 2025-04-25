@@ -1,65 +1,62 @@
-# auto-changelog README
+# Auto CHANGELOG for VS Code
 
-This is the README for your extension "auto-changelog". After writing up a brief description, we recommend including the following sections.
+Auto CHANGELOG is an extension for Visual Studio Code that automates the generation and updating of your project's `CHANGELOG.md` file based on Git commit messages.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Automatic changelog generation:**
+  - When you make a commit using the extension command, a new entry is added to `CHANGELOG.md` with the commit information, optional description, affected files, and the diff of the changes.
+- **Interactive prompt:**
+  - Prompts for the commit message and an optional description directly in the VS Code interface.
+- **Detailed logging:**
+  - Each changelog entry includes date, author, message, description, changed files, and the commit diff.
+- **Automatic organization:**
+  - The changelog is updated so that the most recent entry always appears at the top of the file.
 
-For example if there is an image subfolder under your extension project workspace:
+## How to use
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+1. Open the `Commit and Generate CHANGELOG.MD` command from the command palette (`Ctrl+Shift+P` or `Cmd+Shift+P`).
+2. Enter the commit message when prompted.
+3. (Optional) Enter a detailed description of the changes.
+4. The extension will:
+   - Add and commit all changes in the Git repository.
+   - Generate/update the `CHANGELOG.md` file at the root of the project with the commit information.
+   - Make an additional commit to record the changelog update.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- Project must be versioned with Git.
+- Node.js installed.
 
-## Extension Settings
+## Available Command
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+- `auto-changelog.commit`: Commits and automatically generates/updates the `CHANGELOG.md`.
 
-For example:
+#### For example:
 
-This extension contributes the following settings:
+<div align="center">
+    <img src=".github/exampleOne.png" />
+</div>
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## Notes
 
-## Known Issues
+- The `CHANGELOG.md` file is created automatically if it does not exist.
+- The displayed diff corresponds only to the changes of the performed commit.
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+## Contribution
+
+Feel free to open issues or pull requests to suggest improvements or report problems.
+
+## About me
+
+I'm a frontend engineer that codes stuff for fun. You can find me here: https://github.com/DioLps
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+Initial release of Auto CHANGELOG (auto-changelog)
 
 ---
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
 **Enjoy!**
